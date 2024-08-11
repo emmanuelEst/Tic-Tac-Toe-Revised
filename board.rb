@@ -43,4 +43,10 @@ class Board
       end
     end
   end
+
+  def check_row_win?(sign)
+    @states.each_with_index do |row, index|
+      puts "#{sign} wins! On row #{index + 1}" if row.all?(sign)
+    end
+  end
 end
