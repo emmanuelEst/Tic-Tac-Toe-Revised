@@ -49,4 +49,16 @@ class Board
       puts "#{sign} wins! On row #{index + 1}" if row.all?(sign)
     end
   end
+
+  def check_column_win?(sign)
+    # checks for a column win based on the given sign
+    column_win = false
+    3.times do |column|
+      if [@states[0][column], @states[1][column], @states[2][column]].all?(sign)
+        column_win = true
+        break
+      end
+    end
+    column_win
+  end
 end
