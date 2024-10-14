@@ -61,4 +61,19 @@ class Board
     end
     column_win
   end
+
+  # Checks the left to right diagonal condition depending on the given sign
+  def left_to_right_check?(sign)
+    [@states[0][0], @states[1][1], @states[2][2]].all?(sign)
+  end
+
+  # Checks the Right to left diagonal condition depending on the given sign
+  def right_to_left_check?(sign)
+    [@states[0][2], @states[1][1], @states[2][0]].all?(sign)
+  end
+
+  # Checks both left to right and right to left diagonal conditions based on a given sign
+  def diagonal_check?(sign)
+    [left_to_right_check?(sign), right_to_left_check?(sign)].any? ? true : false
+  end
 end
